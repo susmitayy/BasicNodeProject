@@ -8,5 +8,7 @@ const authMiddleware = require("./../../middleware/auth/verifyLogin");
 //controller
 const dashboardController = require('../../controller/admin/dashboard')
 router.get("/dashboard", dashboardController.getDashboard);
+const loginController = require('../../controller/admin/login')
+router.get("/login", loginController.getLogin);
 
 module.exports = router;

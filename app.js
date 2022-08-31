@@ -28,7 +28,7 @@ app.use(session({
     cookie: { secure: true }
   }))
 //setting static folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")))
 
 //for data fetching
 // app.use(express.json());
@@ -59,8 +59,14 @@ const dashboardRouter = require('./route/admin/dashboard')
 const { application } = require('express')
 
 //admin router resgiter
-app.use("/admin",dashboardRouter);
+app.use("/admin",dashboardRouter)
 app.use('/admin' ,productRouter)
+
+// app.get('api/multiple', (req,res) =>{
+//   res.send({product:presentInt(req,body.numOne)})
+// })
+const multipleRoute = require('./route/api/multiple')
+app.use(multipleRoute)
 
 // seeder use
 // app.use(adminSeeder)
